@@ -31,6 +31,7 @@ def vin_traceability_search_by_serial_no(request):
 		get_resp_from_part_genealogy = obj.get_part_genealogy(request.data)
 		vin_details = []
 		genealogy_details = {}
+		# print("vin_details",vin_details)
 		if(len(get_resp_from_part_genealogy) > 0):
 			for res_obj in get_resp_from_part_genealogy:
 				gen_part_obj = {}
@@ -52,13 +53,13 @@ def vin_traceability_search_by_serial_no(request):
 			params['vin_number'] = vin_details
 			params['genealogy_details'] = genealogy_details
 			get_vin_details = obj.get_vin_details(params)
-			# print("get_vin_details",get_vin_details)
+			print("get_vin_details",get_vin_details)
 			return Response(get_vin_details,status=status.HTTP_200_OK)
 		else:
-			return Response({"result":[]},status=status.HTTP_200_OK)		
+			return Response({"count":0,"result":[]},status=status.HTTP_200_OK)		
 	except Exception as e:
 		print(e)
-		return Response({"result":[]},status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+		return Response({"count":0,"result":[]},status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 	
 
 @api_view(['GET'])
