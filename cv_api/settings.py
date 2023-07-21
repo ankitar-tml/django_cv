@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'cv_plan_vs_actual',
     'cv_reconciliation',
     'rest_framework.authtoken',
+    'vin_traceability_details'
 ]
 
 MIDDLEWARE = [

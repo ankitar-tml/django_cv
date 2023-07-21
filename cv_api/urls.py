@@ -22,4 +22,5 @@ urlpatterns = [
     path('', include("TAT_Dashboard.urls")),
     path('', include("cv_plan_vs_actual.urls")),
     path('', include("cv_reconciliation.urls")),
+    path('', include("vin_traceability_details.urls")),
 ]
